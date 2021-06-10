@@ -14,9 +14,8 @@ public class Main {
 	
 	
 	public static void main(String[] args) throws LoginException {
-		//jda = (new JDABuilder(AccountType.BOT)).setToken("ODUxODg5Mjk0Nzk1OTk3Mjcz.YL-1uw.1dyGK_Wt_8Xh5aCW4vdYYDBWZ3M").buildAsync();
-		 JDABuilder builder = JDABuilder.createDefault("ODUxODg5Mjk0Nzk1OTk3Mjcz.YL-1uw.1dyGK_Wt_8Xh5aCW4vdYYDBWZ3M");
-		 //builder.setToken("ODUxODg5Mjk0Nzk1OTk3Mjcz.YL-1uw.1dyGK_Wt_8Xh5aCW4vdYYDBWZ3M");
+		 JDABuilder builder = JDABuilder.createDefault(DiscordSecrets.token);
+
 		 
 		 builder.setStatus(OnlineStatus.ONLINE); 
 		 jda = builder.build();
