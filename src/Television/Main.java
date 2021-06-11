@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.JDA;
 
 public class Main {
 	public static net.dv8tion.jda.api.JDA jda;
-	public static String prefix = "~";
+	public static String prefix = "!";
 	
 	
 	public static void main(String[] args) throws LoginException {
