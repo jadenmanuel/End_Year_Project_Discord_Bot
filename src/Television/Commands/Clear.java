@@ -1,5 +1,6 @@
 package Television.Commands;
 
+import java.util.Arrays;
 import java.util.List;
 
 import Television.Main;
@@ -12,6 +13,7 @@ public class Clear extends ListenerAdapter{
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
+		
 		
 		if (args[0].equalsIgnoreCase(Main.prefix + "info")) {
 			event.getChannel().sendTyping().queue();
@@ -59,6 +61,37 @@ public class Clear extends ListenerAdapter{
 			}
 			
 		}
+		if(args[0].equalsIgnoreCase(Main.prefix + "anonymous")) {
+			if(args.length<2) {
+				EmbedBuilder typing_error = new EmbedBuilder();
+				typing_error.setDescription("Please enter a message");
+				event.getChannel().sendTyping().queue();
+				event.getChannel().sendMessage(typing_error.build()).queue();
+				
+				
+			}
+			else {
+				event.getChannel().sendMessage("Hello").queue();
+				event.getChannel().sendMessage("Preparing bot...").queue();
+				event.getChannel().sendTyping().queue();
+				event.getChannel().sendMessage("We are working on your message").queue();
+				event.getChannel().sendTyping().queue();
+				String new_message = "From Anonymous: \n";
+				//String str = Arrays.toString(args);
+			
+				for(int i = 1; i < args.length; i++) {
+					new_message = new_message+" "+args[i];
+					
+					
+				}
+				
+				List<Message> messages = event.getChannel().getHistory().retrievePast(2).complete();
+				event.getChannel().deleteMessages(messages).queue();
+				//event.getChannel().sendMessage(str).queue();
+				event.getChannel().sendMessage(new_message).queue();
+			}
+			}
+		
 		
 		
 		
