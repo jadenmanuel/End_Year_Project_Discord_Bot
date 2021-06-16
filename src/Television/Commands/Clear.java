@@ -16,11 +16,12 @@ public class Clear extends ListenerAdapter{
 		
 		
 		//The Welcomes section 
-		if (args[0].equalsIgnoreCase(Main.prefix + "info")) {
-			event.getChannel().sendTyping().queue();
-			event.getChannel().sendMessage("Welcome to Multipurpose Bot by Television.\nAvailable Commands:\n!clear - This command will clear messages that are newer than two weeks(I can only clear 2 to 100 messages). Also when adding the number make sure to add one to the original number you want to delete. That is how I delete messages. \n!anonymous - This command will send semi - anonymous messages").queue();
+		//if (args[0].equalsIgnoreCase(Main.prefix + "info")) {
+			//event.getChannel().sendTyping().queue();
+			//event.getChannel().sendMessage("Welcome to Multipurpose Bot by Television.\nAvailable Commands:\n!clear - This command will clear messages that are newer than two weeks(I can only clear 2 to 100 messages). Also when adding the number make sure to add one to the original number you want to delete. That is how I delete messages. \n!anonymous - This command will send semi - anonymous messages").queue();
 			
-		}
+			
+		//}
 		
 		//the clear method/ command
 		if(args[0].equalsIgnoreCase(Main.prefix + "clear")) {
@@ -104,6 +105,30 @@ public class Clear extends ListenerAdapter{
 			}
 			}
 		
+		if(args[0].equalsIgnoreCase(Main.prefix + "quotes")) {
+			
+			String[] important_quotes = new String[]{"Success is not final; failure is not fatal: It is the courage to continue that counts.",
+													 "Don't be afraid to give up the good to go for the great.", 
+													 "Successful people do what unsuccessful people are not willing to do. Don't wish it were easier; wish you were better.", 
+													 "Success is walking from failure to failure with no loss of enthusiasm." ,
+													 "If you really look closely, most overnight successes took a long time.",
+													 "The only limit to our realization of tomorrow will be our doubts of today.",
+													 "Many of life's failures are people who did not realize how close they were to success when they gave up.",
+													"The present is theirs; the future, for which I really worked, is mine.",
+													 "I have not failed. I've just found 10,000 ways that won't work. "};
+			
+			int counter= (int) ((Math.random()*important_quotes.length));
+			EmbedBuilder quotes = new EmbedBuilder();
+			quotes.setTitle("Quote for You:");
+			quotes.setDescription(important_quotes[counter]);
+			event.getChannel().sendTyping().queue();
+			event.getChannel().sendMessage(quotes.build()).queue();
+			
+
+				
+			}
+			
+			
 		
 		
 		
